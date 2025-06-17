@@ -68,20 +68,33 @@ function activate(context) {
       target: (link) => '',
       onclick: (link) => \`clickLink(decodeURIComponent("\${encodeURIComponent(link)}"))\`
     };
-    const dark = {
+
+    const lightTheme = {
+      foreground: '#666',
+      noteFontFamily: '"Patrick Hand", cursive',
+      noteFontSize: 15,
+      linkHandler,
+    }
+
+    const darkTheme = {
       background: '#1e1e1e',
       foreground: '#d4d4d4',
-      linkHandler
-    };
-    const light = {
-      foreground: '#666',
-      linkHandler
-    };
+      noteLight: '#FFFDA1',
+      noteDark: '#FFEB5B',
+      noteStroke: '#ccc',
+      noteFontFamily: '"Patrick Hand", cursive',
+      noteFontSize: 15,
+      noteForeground: '#0000CD',
+      fillLight: '#333',
+      fillDark: '#444',
+      linkIconColor: "#999",
+      linkHandler,
+    }
 
     function render() {
       const isDark = document.body.classList.contains("vscode-dark")
       el.innerHTML = ''; // Clear previous content
-      el.appendChild(seqcode(src, isDark ? dark : light).svg.node);
+      el.appendChild(seqcode(src, isDark ? darkTheme : lightTheme).svg.node);
     }
 
     window.addEventListener('message', event => {

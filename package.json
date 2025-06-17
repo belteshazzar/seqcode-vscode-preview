@@ -1,0 +1,90 @@
+{
+  "name": "seqcode-preview",
+  "displayName": "SeqCode Preview",
+  "description": "SeqCode Sequence Diagrams",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.101.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:seqcode"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+        "configuration": {
+			"type": "object",
+			"title": "SeqCode Preview",
+			"order": 20,
+			"properties": {
+				"seqcode.preview.showPreviewOptionInMenuBar": {
+					"type": "boolean",
+					"default": false,
+					"description": "Show 'Preview to Side' option in Menu bar; if false then in Status bar"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "seqcode.sidePreview",
+				"title": "Show side preview",
+				"category": "SeqCode Preview",
+				"icon": {
+					"light": "./assets/icons/PreviewOnRightPane_16x.svg",
+					"dark": "./assets/icons/PreviewOnRightPane_16x_dark.svg"
+				}
+			},
+			{
+				"command": "seqcode.fullPreview",
+				"title": "Show full preview",
+				"category": "SeqCode Preview",
+				"icon": {
+					"light": "./assets/icons/Preview.svg",
+					"dark": "./assets/icons/Preview_inverse.svg"
+				}
+			}
+		],
+        "menus": {
+			"editor/title": [
+				{
+					"command": "seqcode.sidePreview",
+					"when": "editorLangId == seqcode && config.seqcode.preview.showPreviewOptionInMenuBar",
+					"alt": "seqcode.fullPreview",
+					"group": "navigation"
+				}
+			]
+		},
+        "keybindings": [
+			{
+				"command": "seqcode.sidePreview",
+				"key": "ctrl+q s",
+				"mac": "cmd+q s",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "seqcode.fullPreview",
+				"key": "ctrl+q f",
+				"mac": "cmd+q f",
+				"when": "editorTextFocus"
+			}
+		]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.101.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.25.1"
+  },
+  "dependencies": {
+    "seqcode": "^0.1.20"
+  }
+}

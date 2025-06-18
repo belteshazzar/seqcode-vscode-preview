@@ -85,6 +85,6 @@
     "eslint": "^9.25.1"
   },
   "dependencies": {
-    "seqcode": "^0.1.22"
+    "seqcode": "^0.1.23"
   }
 }

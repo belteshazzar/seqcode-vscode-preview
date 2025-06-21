@@ -32,8 +32,8 @@
 				"title": "Show side preview",
 				"category": "SeqCode Preview",
 				"icon": {
-					"light": "./assets/icons/PreviewOnRightPane_16x.svg",
-					"dark": "./assets/icons/PreviewOnRightPane_16x_dark.svg"
+					"light": "./assets/icons/preview_right_light.svg",
+					"dark": "./assets/icons/preview_right_dark.svg"
 				}
 			},
 			{
@@ -41,8 +41,8 @@
 				"title": "Show full preview",
 				"category": "SeqCode Preview",
 				"icon": {
-					"light": "./assets/icons/Preview.svg",
-					"dark": "./assets/icons/Preview_inverse.svg"
+					"light": "./assets/icons/preview_light.svg",
+					"dark": "./assets/icons/preview_dark.svg"
 				}
 			}
 		],

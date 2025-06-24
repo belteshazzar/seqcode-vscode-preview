@@ -14,7 +14,7 @@
   "qna": "marketplace",
   "repository": {
     "type": "git",
-    "url": "https://github.com/belteshazzar/seqcode-vscode"
+    "url": "https://github.com/belteshazzar/seqcode-vscode-preview"
   },
   "pricing": "Free",
     "engines": {

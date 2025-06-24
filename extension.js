@@ -202,8 +202,8 @@ function activate(context) {
   function iconPath() {
     const root = vscode.Uri.joinPath(vscode.Uri.file(context.extensionPath), 'assets','icons');
     return {
-        light: vscode.Uri.file(vscode.Uri.joinPath(root, 'Preview.svg')),
-        dark: vscode.Uri.file(vscode.Uri.joinPath(root, 'Preview_inverse.svg'))
+        light: vscode.Uri.file(vscode.Uri.joinPath(root, 'preview_right_light.svg')),
+        dark: vscode.Uri.file(vscode.Uri.joinPath(root, 'preview_right_dark.svg'))
     };
   }
 

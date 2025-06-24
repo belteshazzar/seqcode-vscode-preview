@@ -2,17 +2,27 @@
   "name": "seqcode-preview",
   "displayName": "SeqCode Preview",
   "description": "SeqCode Sequence Diagrams",
+  "publisher": "belteshazzar",
   "version": "0.0.1",
-  "engines": {
+  "icon": "./logo-128.png",
+  "license": "BSD-2-Clause",
+  "keywords": ["uml", "sequence", "diagram", "diagrams"],
+  "galleryBanner":{
+    "color": "#aaa",
+    "theme": "dark"
+  },
+  "qna": "marketplace",
+  "pricing": "Free",
+    "engines": {
     "vscode": "^1.101.0"
   },
   "categories": [
     "Other"
   ],
+  "main": "./extension.js",
   "activationEvents": [
     "onLanguage:seqcode"
   ],
-  "main": "./extension.js",
   "contributes": {
         "configuration": {
 			"type": "object",

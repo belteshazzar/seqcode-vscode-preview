@@ -43,7 +43,7 @@ function activate(context) {
   -->
   <meta
     http-equiv="Content-Security-Policy"
-    content="default-src 'none'; img-src ${panel.webview.cspSource} https:; script-src 'unsafe-inline' ${panel.webview.cspSource}; style-src ${panel.webview.cspSource} 'unsafe-inline';"
+    content="default-src 'none'; script-src 'unsafe-inline' ${panel.webview.cspSource}; style-src ${panel.webview.cspSource} 'unsafe-inline';"
   />
   <style>
     #preview {

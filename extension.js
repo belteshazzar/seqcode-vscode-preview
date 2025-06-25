@@ -59,7 +59,6 @@ function activate(context) {
 
   <script type="module">
     import seqcode from '${scriptUri}';
-
     let src = '';
     const vscode = acquireVsCodeApi();
     const el = document.getElementById('preview');
@@ -71,7 +70,6 @@ function activate(context) {
 
     const lightTheme = {
       foreground: '#666',
-      noteFontFamily: '"Patrick Hand", cursive',
       noteFontSize: 15,
       linkHandler,
     }
@@ -82,7 +80,6 @@ function activate(context) {
       noteLight: '#FFFDA1',
       noteDark: '#FFEB5B',
       noteStroke: '#ccc',
-      noteFontFamily: '"Patrick Hand", cursive',
       noteFontSize: 15,
       noteForeground: '#0000CD',
       fillLight: '#333',
@@ -138,6 +135,7 @@ function activate(context) {
     );
 
     panel.iconPath = iconPath()
+
     const scriptUri = panel.webview.asWebviewUri(vscode.Uri.joinPath(context.extensionUri, 'node_modules', 'seqcode', 'dist', 'seqcode.js'));
     panel.webview.html = getWebviewContent(scriptUri);
 
@@ -145,9 +143,10 @@ function activate(context) {
       message => {
         switch (message.type) {
           case 'link':
-            const folder = vscode.workspace.getWorkspaceFolder(editorForDiagram.document.uri);
-            const link = vscode.Uri.joinPath(folder.uri,message.link + '.seqcode');
+            const workspaceFolderUri = vscode.workspace.getWorkspaceFolder(editorForDiagram.document.uri).uri;
+            const link = vscode.Uri.joinPath(workspaceFolderUri,message.link + '.seqcode');
             const column = editorForDiagram.viewColumn
+
             vscode.workspace.openTextDocument(link)
               .then(
                 doc => vscode.window.showTextDocument(doc,column),
@@ -180,7 +179,7 @@ function activate(context) {
     }
 
     // Update status if an seqcode file
-    if (vscode.window.activeTextEditor.document.languageId.toLowerCase() == "seqcode") {
+    if (editor.document.languageId.toLowerCase() == "seqcode") {
         statusBarItem.show();
     } else {
         statusBarItem.hide();
@@ -189,9 +188,12 @@ function activate(context) {
 
   function handleTextDocumentChange() {
     if (vscode.window.activeTextEditor 
+      && vscode.window.activeTextEditor.document
       && vscode.window.activeTextEditor.document.languageId.toLowerCase() == 'seqcode' 
       && panel) {
+
       editorForDiagram = vscode.window.activeTextEditor
+
       postMessage({
         type: 'render',
         source: editorForDiagram.document.getText()
@@ -200,10 +202,10 @@ function activate(context) {
   }
 
   function iconPath() {
-    const root = vscode.Uri.joinPath(vscode.Uri.file(context.extensionPath), 'assets','icons');
+    const root = vscode.Uri.joinPath(vscode.Uri.file(context.extensionPath), 'assets/icons');
     return {
-        light: vscode.Uri.file(vscode.Uri.joinPath(root, 'preview_right_light.svg')),
-        dark: vscode.Uri.file(vscode.Uri.joinPath(root, 'preview_right_dark.svg'))
+        light: vscode.Uri.file(vscode.Uri.joinPath(root, 'preview_light.svg').path),
+        dark: vscode.Uri.file(vscode.Uri.joinPath(root, 'preview_dark.svg').path)
     };
   }
 

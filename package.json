@@ -1,7 +1,7 @@
 {
   "name": "seqcode-preview",
-  "displayName": "SeqCode Preview",
-  "description": "SeqCode Sequence Diagrams",
+  "displayName": "seqcode preview",
+  "description": "seqcode sequence diagrams",
   "publisher": "belteshazzar",
   "version": "0.0.1",
   "icon": "./logo-128.png",
@@ -73,14 +73,14 @@
         "keybindings": [
 			{
 				"command": "seqcode.sidePreview",
-				"key": "ctrl+q s",
-				"mac": "cmd+q s",
+				"key": "ctrl+shift+v",
+				"mac": "cmd+shift+v",
 				"when": "editorTextFocus"
 			},
 			{
 				"command": "seqcode.fullPreview",
-				"key": "ctrl+q f",
-				"mac": "cmd+q f",
+				"key": "alt+ctrl+shift+v",
+				"mac": "alt+cmd+shift+v",
 				"when": "editorTextFocus"
 			}
 		]

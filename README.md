@@ -2,7 +2,7 @@
 
 Provides sequence diagram generation from seqcode text files - a simple programming language like script that translates into UML Sequence diagrams.
 
-![Example Sequence Diagram](example.png)
+![Example Sequence Diagram](./example.png)
 
 For more information see:
 - https://seqcode.app
